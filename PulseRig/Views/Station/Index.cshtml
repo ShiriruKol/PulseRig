@@ -1,0 +1,30 @@
+﻿@model List<PulseRig.PresentationLayer.Models.StationViewModel>
+@{
+    ViewData["Title"] = "Список станций";
+}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">№</th>
+      <th scope="col">Имя</th>
+      <th scope="col">Кол-во групп</th>
+      <th scope="col">Действия</th>
+    </tr>
+  </thead>
+  <tbody>
+      @{
+        var index = 1;
+        foreach (var item in Model)
+        {
+            <tr>
+              <th scope="row">@index</th>
+              <td>@item.Station.Name</td>
+              <td>@item.Groups.Count</td>
+              <td></td>
+            </tr>
+            index++;
+        }
+      }
+  </tbody>
+</table>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PulseRig.Models;
+using PulseRig.DataLayer;
+using PulseRig.PesentationLayer.Models;
 using System.Diagnostics;
 
 namespace PulseRig.Controllers
@@ -8,7 +9,7 @@ namespace PulseRig.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, EFDBContext context)
         {
             _logger = logger;
         }
