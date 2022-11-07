@@ -12,6 +12,6 @@ public class StationViewModel
 public class StationEditModel
 {
     public int Id { get; set; }
-    [Required]
-    public string Name { get; set; }
+    [Required(ErrorMessage = "Наименование является обязательным полем!")]
+    public string Name { get; set; } = string.Empty;
 }

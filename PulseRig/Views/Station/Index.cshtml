@@ -2,7 +2,12 @@
 @{
     ViewData["Title"] = "Список станций";
 }
-
+<div class="action-area">
+    <h4>Добавить новую станцию </h4>
+    <a class="btn btn-success action-icon" href="/Station/Add" title="Нажмите, чтобы добавить.">
+        <i class="fa-sharp fa-solid fa-plus"></i>
+    </a>
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -21,7 +26,16 @@
               <th scope="row">@index</th>
               <td>@item.Station.Name</td>
               <td>@item.Groups.Count</td>
-              <td></td>
+              <td>
+              <div class="action-area">
+                <a class="btn btn-secondary action-icon" href="/Station/Edit/@item.Station.Id" title="Нажмите, чтобы редактировать информацию.">
+                    <i class="fas fa-pen"></i>
+                </a>
+                <a class="btn btn-danger action-icon" href="/Station/Remove/@item.Station.Id" title="Нажмите, чтобы удалить.">
+                    <i class="fas fa-trash"></i>
+                </a>
+              <div/>
+              </td>
             </tr>
             index++;
         }

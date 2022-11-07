@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PulseRig.DataLayer;
-using PulseRig.PesentationLayer.Models;
+using PulseRig.PresentationLayer.Models;
 using System.Diagnostics;
 
 namespace PulseRig.Controllers

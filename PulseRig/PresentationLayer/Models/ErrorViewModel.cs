@@ -1,4 +1,4 @@
-namespace PulseRig.PesentationLayer.Models;
+namespace PulseRig.PresentationLayer.Models;
 
 public class ErrorViewModel
 {

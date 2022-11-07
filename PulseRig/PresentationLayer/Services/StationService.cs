@@ -68,7 +68,7 @@ public class StationService
         return StationDBToViewModelById(_stationDbModel.Id);
     }
 
-    public void DeleteAlbum(int id)
+    public void DeleteStation(int id)
     {
         Station _directoryDbModel;
         if (id != 0)

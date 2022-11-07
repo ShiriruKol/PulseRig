@@ -6,27 +6,38 @@ namespace PulseRig.PresentationLayer.Services;
 
 public class EquipmentService
 {
-    private DataManager dataManager;
+    private DataManager _dataManager;
     public EquipmentService(DataManager dataManager)
     {
-        this.dataManager = dataManager;
+        _dataManager = dataManager;
+    }
+
+    public List<EquipmentViewModel> GetEquipmentList()
+    {
+        var _dirs = _dataManager.Equipments.GetAllEquipments();
+        List<EquipmentViewModel> _modelsList = new List<EquipmentViewModel>();
+        foreach (var item in _dirs)
+        {
+            _modelsList.Add(EquipmentDBModelToView(item.Id));
+        }
+        return _modelsList;
     }
 
     public EquipmentViewModel EquipmentDBModelToView(int equipmentId)
     {
-        Equipment equipment = dataManager.Equipments.GetEquipmentById(equipmentId);
+        Equipment equipment = _dataManager.Equipments.GetEquipmentById(equipmentId);
         var _model = new EquipmentViewModel()
         {
             Equipment = equipment,
-            GroupName = dataManager.Groups.GetGroupById(equipment.GroupId).Name
+            GroupName = _dataManager.Groups.GetGroupById(equipment.GroupId).Name
         };
 
         return _model;
     }
 
-    public EquipmentEditViewModel GetSongEditModel(int Id)
+    public EquipmentEditViewModel GetEquipmentEditModel(int Id)
     {
-        var _dbModel = dataManager.Equipments.GetEquipmentById(Id);
+        var _dbModel = _dataManager.Equipments.GetEquipmentById(Id);
         var _editModel = new EquipmentEditViewModel()
         {
             Id = _dbModel.Id = _dbModel.Id,
@@ -37,12 +48,12 @@ public class EquipmentService
         return _editModel;
     }
 
-    public EquipmentViewModel SaveSongEditModelToDb(EquipmentEditViewModel editModel)
+    public EquipmentViewModel SaveEquipmentEditModelToDb(EquipmentEditViewModel editModel)
     {
         Equipment equipment;
         if (editModel.Id != 0)
         {
-            equipment = dataManager.Equipments.GetEquipmentById(editModel.Id);
+            equipment = _dataManager.Equipments.GetEquipmentById(editModel.Id);
         }
         else
         {
@@ -52,25 +63,25 @@ public class EquipmentService
         equipment.FactoryNumber = editModel.FactoryNumber;
         equipment.Type = editModel.Type;
         equipment.GroupId = editModel.Groupid;
-        dataManager.Equipments.SaveEquipment(equipment);
+        _dataManager.Equipments.SaveEquipment(equipment);
         return EquipmentDBModelToView(equipment.Id);
     }
 
-    public void DeleteSong(int id)
+    public void DeleteEquipment(int id)
     {
         Equipment equipment;
         if (id != 0)
         {
-            equipment = dataManager.Equipments.GetEquipmentById(id);
+            equipment = _dataManager.Equipments.GetEquipmentById(id);
         }
         else
         {
             equipment = new Equipment();
         }
-        dataManager.Equipments.DeleteEquipment(equipment);
+        _dataManager.Equipments.DeleteEquipment(equipment);
     }
 
-    public EquipmentEditViewModel CreateNewSongEditModel(int groupId)
+    public EquipmentEditViewModel CreateNewEquipmentEditModel(int groupId)
     {
         return new EquipmentEditViewModel() { Groupid = groupId };
     }

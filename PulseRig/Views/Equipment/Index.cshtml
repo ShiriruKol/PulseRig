@@ -1,0 +1,34 @@
+﻿@model List<PulseRig.PresentationLayer.Models.EquipmentViewModel>
+@{
+    ViewData["Title"] = "Список оборудований";
+}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">№</th>
+      <th scope="col">Имя</th>
+      <th scope="col">Тип</th>
+      <th scope="col">Заводской номер</th>
+      <th scope="col">Группа</th>
+      <th scope="col">Действия</th>
+    </tr>
+  </thead>
+  <tbody>
+        @{
+            var index = 1;
+            foreach (var item in Model)
+            {
+                <tr>
+                  <th scope="row">@index</th>
+                  <td>@item.Equipment.Name</td>
+                  <td>@item.Equipment.Type</td>
+                  <td>@item.Equipment.FactoryNumber</td>
+                  <td>@item.GroupName</td>
+                  <td></td>
+                </tr>
+                index++;
+            }
+        }
+  </tbody>
+</table>
