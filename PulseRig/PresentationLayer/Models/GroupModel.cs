@@ -1,4 +1,5 @@
-﻿using PulseRig.DataLayer.Entityes;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using PulseRig.DataLayer.Entityes;
 using System.ComponentModel.DataAnnotations;
 
 namespace PulseRig.PresentationLayer.Models;
@@ -16,6 +17,6 @@ public class GroupEditViewModel
     public string Name { get; set; }
     [Required]
     public string Description { get; set; }
-    [Required]
-    public List<Station> Stations { get; set; }
+    public int StationId { get; set; } = 0;
+    public List<SelectListItem> Stations { get; set; } = new();
 }

@@ -56,23 +56,27 @@ public class GroupService
     public GroupViewModel SaveAlbumEditModelToDb(GroupEditViewModel groupEditModel)
     {
         Group _groupDbModel;
+        Station _statDbMocel;
         if (groupEditModel.Id != 0)
         {
             _groupDbModel = _dataManager.Groups.GetGroupById(groupEditModel.Id);
+            _statDbMocel = _dataManager.Stations.GetStationById(groupEditModel.StationId);
         }
         else
         {
             _groupDbModel = new Group();
+            _statDbMocel = _dataManager.Stations.GetStationById(groupEditModel.StationId);
         }
         _groupDbModel.Name = groupEditModel.Name;
         _groupDbModel.Description = groupEditModel.Description;
+        _groupDbModel.Station = _statDbMocel;
 
         _dataManager.Groups.SaveGroup(_groupDbModel);
 
         return GroupDBToViewModelById(_groupDbModel.Id);
     }
 
-    public void DeleteAlbum(int id)
+    public void DeleteGroup(int id)
     {
         Group _directoryDbModel;
         if (id != 0)

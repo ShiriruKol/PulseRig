@@ -2,7 +2,12 @@
 @{
     ViewData["Title"] = "Список оборудований";
 }
-
+<div class="action-area">
+    <h4>Добавить новое оборудование </h4>
+    <a class="btn btn-success action-icon" href="/Equipment/Add" title="Нажмите, чтобы добавить.">
+        <i class="fa-sharp fa-solid fa-plus"></i>
+    </a>
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -25,7 +30,16 @@
                   <td>@item.Equipment.Type</td>
                   <td>@item.Equipment.FactoryNumber</td>
                   <td>@item.GroupName</td>
-                  <td></td>
+                  <td>
+                    <div class="action-area">
+                            <a class="btn btn-secondary action-icon" href="/Equipment/Edit/@item.Equipment.Id" title="Нажмите, чтобы редактировать информацию.">
+                                <i class="fas fa-pen"></i>
+                            </a>
+                            <a class="btn btn-danger action-icon" href="/Equipment/Remove/@item.Equipment.Id" title="Нажмите, чтобы удалить.">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                    </div>
+                  </td>
                 </tr>
                 index++;
             }

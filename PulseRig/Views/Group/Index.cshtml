@@ -2,7 +2,12 @@
 @{
     ViewData["Title"] = "Список групп";
 }
-
+<div class="action-area">
+    <h4>Добавить новую группу </h4>
+    <a class="btn btn-success action-icon" href="/Group/Add" title="Нажмите, чтобы добавить.">
+        <i class="fa-sharp fa-solid fa-plus"></i>
+    </a>
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -23,7 +28,19 @@
                       <td>@item.Group.Name</td>
                       <td>@item.Group.Description</td>
                       <td>@item.Group.Equipments.Count</td>
-                      <td></td>
+                      <td>
+                      <div class="action-area">
+                        <a class="btn btn-secondary action-icon" href="/Group/Edit/@item.Group.Id" title="Нажмите, чтобы редактировать информацию.">
+                            <i class="fas fa-pen"></i>
+                        </a>
+                        <a class="btn btn-primary action-icon" href="/Group/Info/@item.Group.Id" title="Нажмите, чтобы узнать подробнее.">
+                            <i class="fa-sharp fa-solid fa-info"></i>
+                        </a>
+                        <a class="btn btn-danger action-icon" href="/Group/Remove/@item.Group.Id" title="Нажмите, чтобы удалить.">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                      <div/>
+                      </td>
                     </tr>
                 index++;
             }

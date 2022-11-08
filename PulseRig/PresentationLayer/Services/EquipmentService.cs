@@ -62,7 +62,7 @@ public class EquipmentService
         equipment.Name = editModel.Name;
         equipment.FactoryNumber = editModel.FactoryNumber;
         equipment.Type = editModel.Type;
-        equipment.GroupId = editModel.Groupid;
+        equipment.GroupId = editModel.GroupId;
         _dataManager.Equipments.SaveEquipment(equipment);
         return EquipmentDBModelToView(equipment.Id);
     }
@@ -83,6 +83,6 @@ public class EquipmentService
 
     public EquipmentEditViewModel CreateNewEquipmentEditModel(int groupId)
     {
-        return new EquipmentEditViewModel() { Groupid = groupId };
+        return new EquipmentEditViewModel() { GroupId = groupId };
     }
 }
