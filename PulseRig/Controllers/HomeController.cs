@@ -19,6 +19,11 @@ namespace PulseRig.Controllers
             return View();
         }
 
+        public IActionResult Authorization()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

@@ -14,7 +14,7 @@
       <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark box-shadow  bg-dark border-bottom mb-3">
         <div class="container-fluid" bis_skin_checked="1">
           <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-              <img class="bi me-2" width="40" height="32" src="Icon.svg"></img>
+              <img class="bi me-2" width="40" height="32" src="~/Icon.svg"></img>
               <span class="fs-4">PulseRig</span>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" wfd-invisible="true">
@@ -32,7 +32,7 @@
                   <a class="nav-link " asp-area="" asp-controller="Equipment" asp-action="Index">Оборудования</a>
               </li>
             </ul>
-            <a class="btn btn-outline-primary" asp-area="" asp-controller="" asp-action="">Войти <i class="fa-regular fa-user"></i></a>
+            <a class="btn btn-outline-primary" asp-controller="Home" asp-action="Authorization">Войти <i class="fa-regular fa-user"></i></a>
           </div>
         </div>
       </nav>
